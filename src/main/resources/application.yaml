@@ -3,30 +3,25 @@ server:
 
 spring:
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/GovFlow_Tracker}
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:1542005}
+    url: jdbc:postgresql://aws-1-eu-north-1.pooler.supabase.com:6543/postgres
+    username: postgres.iatcnetlfbiijmjmqikv
+    password: Mora@2004
     driver-class-name: org.postgresql.Driver
 
-  # --- JPA & Hibernate Configuration ---
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         format_sql: true
 
-  # --- Database Migration Configuration ---
   flyway:
-    enabled: true
-    baseline-on-migrate: true
+    enabled: false
 
 jwt:
-  secret: ${JWT_SECRET:a-very-strong-and-long-secret-key-that-you-should-change}
+  secret: "thisisaverylongandcomplexsecretkeythatshouldnotbeemptyornullforenhancedsecurity"
   expiration: 3600000 # 1 hour
 
-# ✅ START: Add this new section for file storage
 file:
-  upload-dir: ./uploads
-# ✅ END: Add this new section
+  upload-dir: /tmp/uploads
