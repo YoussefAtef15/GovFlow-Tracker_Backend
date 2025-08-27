@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://aws-1-eu-north-1.pooler.supabase.com:6543/postgres
-    username: postgres.iatcnetlfbiijmjmqikv
-    password: Mora@2004
-    driver-class-name: org.postgresql.Driver
+    url: ${jdbc:postgresql://aws-1-eu-north-1.pooler.supabase.com:6543/postgres}
+    username: ${postgres.iatcnetlfbiijmjmqikv}
+    password: ${Mora@2004}
+    driver-class-name: ${org.postgresql.Driver}
 
   jpa:
     hibernate:
@@ -20,8 +20,8 @@ spring:
     enabled: false
 
 jwt:
-  secret: "thisisaverylongandcomplexsecretkeythatshouldnotbeemptyornullforenhancedsecurity"
-  expiration: 3600000 # 1 hour
+  secret: ${"thisisaverylongandcomplexsecretkeythatshouldnotbeemptyornullforenhancedsecurity"}
+  expiration: ${3600000} # 1 hour
 
 file:
-  upload-dir: /tmp/uploads
+  upload-dir: ${/tmp/uploads}
